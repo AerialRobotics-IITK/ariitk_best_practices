@@ -31,6 +31,6 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
 
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>catkin_simple</depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
 
 </package>
