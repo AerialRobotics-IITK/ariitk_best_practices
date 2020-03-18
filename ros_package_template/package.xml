@@ -32,6 +32,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <buildtool_depend>catkin_simple</buildtool_depend>
+  
   <depend>roscpp</depend>
+  <depend>lib_package_template</depend>
 
 </package>
