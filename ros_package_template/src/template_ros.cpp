@@ -13,6 +13,10 @@ void TemplateROS::init(ros::NodeHandle& nh) {
 }
 
 void TemplateROS::run() {
+    if(cloud_->empty()) {
+        return;
+    }
+
     if(do_plane_) {
         plane_.fitModel(cloud_, 0.01);
     } else {
