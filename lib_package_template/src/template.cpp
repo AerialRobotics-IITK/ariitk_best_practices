@@ -11,11 +11,11 @@ void BaseTemplate::computeInliers(pcl::RandomSampleConsensus<pcl::PointXYZ>& mod
 
 void ChildTemplatePlane::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) {
     cloud->points.resize(cloud->width * cloud->height);
-    for(std::size_t i = 0; i < cloud->points.size (); ++i) {
-        cloud->points[i].x = 1024 * rand () / (RAND_MAX + 1.0);
-        cloud->points[i].y = 1024 * rand () / (RAND_MAX + 1.0);
-        if( i % 2 == 0) {
-            cloud->points[i].z = 1024 * rand () / (RAND_MAX + 1.0);
+    for(std::size_t i = 0; i < cloud->points.size(); ++i) {
+        cloud->points[i].x = 1024 * rand() / (RAND_MAX + 1.0);
+        cloud->points[i].y = 1024 * rand() / (RAND_MAX + 1.0);
+        if(i % 2 == 0) {
+            cloud->points[i].z = 1024 * rand() / (RAND_MAX + 1.0);
         } else {
             cloud->points[i].z = -1 * (cloud->points[i].x + cloud->points[i].y);
         }
