@@ -7,6 +7,14 @@ BaseTemplate::BaseTemplate()
 
 void BaseTemplate::computeModelParameters(pcl::RandomSampleConsensus<pcl::PointXYZ>& model) {
     model.getInliers(inliers_);
+
+    Eigen::VectorXf model_coeff;
+    model.getModelCoefficients(model_coeff);
+
+    coefficients_.a = model_coeff.data()[0];
+    coefficients_.b = model_coeff.data()[1];
+    coefficients_.c = model_coeff.data()[2];
+    coefficients_.d = model_coeff.data()[3];
 }
 
 void ChildTemplatePlane::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) {
@@ -22,7 +30,7 @@ void ChildTemplatePlane::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr&
     }
 }
 
-void ChildTemplatePlane::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, double distance_threshold) {
+void ChildTemplatePlane::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, const double& distance_threshold) {
     pcl::SampleConsensusModelPlane<pcl::PointXYZ>::Ptr model_p(new pcl::SampleConsensusModelPlane<pcl::PointXYZ>(cloud));
     pcl::RandomSampleConsensus<pcl::PointXYZ> ransac(model_p);
     ransac.setDistanceThreshold(distance_threshold);
@@ -48,7 +56,7 @@ void ChildTemplateSphere::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr
     }
 }
 
-void ChildTemplateSphere::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, double distance_threshold) {
+void ChildTemplateSphere::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, const double& distance_threshold) {
     pcl::SampleConsensusModelSphere<pcl::PointXYZ>::Ptr model_s(new pcl::SampleConsensusModelSphere<pcl::PointXYZ>(cloud));
     pcl::RandomSampleConsensus<pcl::PointXYZ> ransac(model_s);
     ransac.setDistanceThreshold(distance_threshold);
