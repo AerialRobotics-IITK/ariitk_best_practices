@@ -5,7 +5,7 @@ namespace ariitk::lib_package_template {
 BaseTemplate::BaseTemplate()
     : inliers_(std::vector<int>()) {}
 
-void BaseTemplate::computeInliers(pcl::RandomSampleConsensus<pcl::PointXYZ>& model) {
+void BaseTemplate::computeModelParameters(pcl::RandomSampleConsensus<pcl::PointXYZ>& model) {
     model.getInliers(inliers_);
 }
 
@@ -27,7 +27,7 @@ void ChildTemplatePlane::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, do
     pcl::RandomSampleConsensus<pcl::PointXYZ> ransac(model_p);
     ransac.setDistanceThreshold(distance_threshold);
     ransac.computeModel();
-    computeInliers(ransac);
+    computeModelParameters(ransac);
     pcl::copyPointCloud(*cloud, getModelInliers(), *cloud);
 }
 
@@ -53,7 +53,7 @@ void ChildTemplateSphere::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, d
     pcl::RandomSampleConsensus<pcl::PointXYZ> ransac(model_s);
     ransac.setDistanceThreshold(distance_threshold);
     ransac.computeModel();
-    computeInliers(ransac);
+    computeModelParameters(ransac);
     pcl::copyPointCloud(*cloud, getModelInliers(), *cloud);
 }
 

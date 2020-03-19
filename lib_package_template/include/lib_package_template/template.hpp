@@ -12,11 +12,20 @@ class BaseTemplate {
         BaseTemplate();
         ~BaseTemplate() {};
         virtual void generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) = 0;
-        std::vector<int> getModelInliers() const { return inliers_; }
+        inline std::vector<int> getModelInliers() const { return inliers_; };
         virtual void fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, double distance_threshold) = 0;
-        void computeInliers(pcl::RandomSampleConsensus<pcl::PointXYZ>& model);
+        void computeModelParameters(pcl::RandomSampleConsensus<pcl::PointXYZ>& model);
+        inline ModelCoefficients getModelCoefficients() const { return coefficients_; };
 
     private:
+        struct ModelCoefficients {
+            float a;
+            float b;
+            float c;
+            float d;
+        };
+
+        ModelCoefficients coefficients_;
         std::vector<int> inliers_;
 };
 
