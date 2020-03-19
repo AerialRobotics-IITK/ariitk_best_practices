@@ -65,7 +65,6 @@ This contains the main ROS package. All your package-specific code goes here.
         If your node(s) are written in python, then you need to put them here.
         * template.sh  
         Executable bash script(s) go here.
-
     * src  
         * template_ros_pub.cpp, template_ros.cpp  
         These cpp file(s) contain the actual definitions for all the functions declared in the header files inside ros_package_template/include/ros_package_template/, in serial order.  
@@ -79,7 +78,6 @@ This contains the main ROS package. All your package-specific code goes here.
         * launch  
             * template_test.launch  
             Launch file(s) for launching the test(s).
-
         * src
             * template_test.cpp  
             More details on how to write this code can be found [here.](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)  
