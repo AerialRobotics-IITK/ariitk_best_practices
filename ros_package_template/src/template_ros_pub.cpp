@@ -31,4 +31,4 @@ void TemplateROSPub::run() {
     pc_pub_.publish(msg);
 }
 
-} 
+} // namespace ariitk::ros_package_template

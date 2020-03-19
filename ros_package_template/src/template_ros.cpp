@@ -32,4 +32,4 @@ void TemplateROS::cloudCallback(const sensor_msgs::PointCloud2& msg) {
     pcl::fromPCLPointCloud2(pcl_pc2, *cloud_);
 }
 
-} 
+} // namespace ariitk::ros_package_template
