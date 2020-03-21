@@ -1,0 +1,4 @@
+## Point Cloud Generation Parameters:
+do_plane: false     # bool: does planar model if true, spherical model if false
+width: 10           # u_int: width of the point cloud
+height: 10          # u_int: height of the point cloud
