@@ -7,6 +7,8 @@ namespace ariitk::ros_package_template {
 void TemplateROSPub::init(ros::NodeHandle& nh) {
     pc_pub_ = nh.advertise<sensor_msgs::PointCloud2>("cloud", 1);
 
+    plane_flag_server_ = nh.advertiseService("gen_plane", &TemplateROSPub::serviceCallback, this);
+
     ros::NodeHandle nh_private("~");
     nh_private.getParam("do_plane", do_plane_);
     nh_private.getParam("width", width_);
@@ -29,6 +31,13 @@ void TemplateROSPub::run() {
     msg.header.stamp = ros::Time::now();
     msg.header.frame_id = "world";
     pc_pub_.publish(msg);
+}
+
+bool TemplateROSPub::serviceCallback(msg_package_template::TemplateService::Request& req, msg_package_template::TemplateService::Response& resp) {
+    do_plane_ = req.do_plane.data;
+    resp.success.data = true;
+    resp.type_set.data = (do_plane_) ? "Plane" : "Sphere";
+    return true;
 }
 
 } // namespace ariitk::ros_package_template
