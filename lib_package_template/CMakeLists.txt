@@ -12,6 +12,9 @@ include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINTIONS})
 
+find_package(Eigen3 REQUIRED)
+include_directories(${Eigen3_INCLUDE_DIRS})
+
 cs_add_library(${PROJECT_NAME}_lib src/template.cpp)
 target_link_libraries(${PROJECT_NAME}_lib ${PCL_LIBRARIES})
 

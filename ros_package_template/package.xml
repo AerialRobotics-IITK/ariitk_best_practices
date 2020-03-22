@@ -35,5 +35,6 @@
   
   <depend>roscpp</depend>
   <depend>lib_package_template</depend>
+  <depend>msg_package_template</depend>
 
 </package>
