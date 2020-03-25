@@ -7,19 +7,19 @@ For more information on the syntax and usage of rosinstall, please refer to [thi
     This is the sample rosinstall file for cloning the repository [catkin_simple](https://github.com/catkin/catkin_simple) using https. More repositories can be added as required.  
     * template_ssh.rosinstall
     This is the sample rosinstall file for cloning the same repository as above, but using ssh keys.  
-* lib_package_template  
+* pcl_ransac  
 This folder contains the code for the custom libraries that you have written for use in your ROS package. this should not contain any ROS code, and should be modular so that it can be used in other packages as well.  
     * include  
-        * lib_package_template  
+        * pcl_ransac  
             * template.hpp  
-            These file(s) contains all the includes for the library, and the declarations for all the variables+functions  in the library. All of this is put in a class/classes under the common namespace ar_iitk::lib_package_template. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be written here.
+            These file(s) contains all the includes for the library, and the declarations for all the variables+functions  in the library. All of this is put in a class/classes under the common namespace ariitk::pcl_ransac. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be written here.
     * src  
         * template.cpp  
-        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside lib_package_template/include/lib_package_template/, in serial order. 
+        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside pcl_ransac/include/pcl_ransac/, in serial order. 
     * test  
     This folder contains the code for testing individual functions using [googletest](https://github.com/google/googletest). Instead of running the entire code, you can check particular functions, whether they are producing the correct output or not.
         * include  
-            * lib_package_template_test  
+            * pcl_ransac_test  
                 * template_test.hpp  
         * src
             * template_test.cpp  
@@ -28,7 +28,7 @@ This folder contains the code for the custom libraries that you have written for
     Self explanatory. Note:We will use [catkin_simple](https://github.com/catkin/catkin_simple) as it makes writing our CMakeLists.txt a lot easier. For more information please refer the above link.  
     * package.xml  
     Self explanatory. [Link for reference.](http://wiki.ros.org/catkin/package.xml)  
-* msg_package_template  
+* pcl_ransac_msgs  
 This package contains all the custom [actions](http://wiki.ros.org/actionlib/Tutorials), [messages and services](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv) that your main ROS package needs. Refer to the links to learn how to write these.
     * action  
         * template.action  
@@ -43,7 +43,7 @@ This package contains all the custom [actions](http://wiki.ros.org/actionlib/Tut
     Self explanatory.  
     * package.xml  
     Self explanatory.  
-* ros_package_template  
+* pcl_ransac_ros  
 This contains the main ROS package. All your package-specific code goes here.  
     * cfg  
         * template.cfg  
@@ -51,9 +51,9 @@ This contains the main ROS package. All your package-specific code goes here.
         * template.yaml  
         These file(s) have the parameters that you want to load everytime you run your ROS nodes. It is always a good idea to put as many constants/values here as possible, so you don't have to recompile everytime you change a value.  
     * include
-        * ros_package_template  
+        * pcl_ransac_ros  
             * template_ros_pub.hpp, template_ros.hpp  
-            These file(s) contains all the includes for the ROS package, and the declarations for all the variables+functions  in the ROS package. All of this is put in a class/classes under the common namespace ar_iitk::ros_package_template. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be done here.  
+            These file(s) contains all the includes for the ROS package, and the declarations for all the variables+functions  in the ROS package. All of this is put in a class/classes under the common namespace ariitk::pcl_ransac_ros. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be done here.  
     * launch
         * template.launch  
         Launch file(s) for launching your nodes, loading parameters, etc.  
@@ -67,13 +67,13 @@ This contains the main ROS package. All your package-specific code goes here.
         Executable bash script(s) go here.
     * src  
         * template_ros_pub.cpp, template_ros.cpp  
-        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside ros_package_template/include/ros_package_template/, in serial order.  
+        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside pcl_ransac_ros/include/pcl_ransac_ros/, in serial order.  
         * template_ros_node.cpp
         These are the actual node(s) that your machine will run. This should be kept as de-cluttered as possible.  
     * test  
     As mentioned earlier, this folder contains the code for testing individual functions using [googletest](https://github.com/google/googletest).
         * include  
-            * lib_package_template_test  
+            * pcl_ransac_test  
                 * template_test.hpp  
         * launch  
             * template_test.launch  
