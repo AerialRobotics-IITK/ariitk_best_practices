@@ -16,7 +16,7 @@ find_package(Eigen3 REQUIRED)
 include_directories(${Eigen3_INCLUDE_DIRS})
 
 cs_add_library(${PROJECT_NAME}_lib src/pcl_ransac.cpp)
-target_link_libraries(${PROJECT_NAME}_lib ${PCL_LIBRARIES} ${Eigen3_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_lib ${PCL_LIBRARIES})
 
 cs_install()
 cs_export()
