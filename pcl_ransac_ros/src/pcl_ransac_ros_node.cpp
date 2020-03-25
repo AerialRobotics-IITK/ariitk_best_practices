@@ -1,5 +1,5 @@
-#include <pcl_ransac_ros/CloudModelFitter.hpp>
-#include <pcl_ransac_ros/PointCloudPublisher.hpp>
+#include <pcl_ransac_ros/cloud_model_fit.hpp>
+#include <pcl_ransac_ros/point_cloud_pub.hpp>
 
 using namespace ariitk::pcl_ransac_ros;
 

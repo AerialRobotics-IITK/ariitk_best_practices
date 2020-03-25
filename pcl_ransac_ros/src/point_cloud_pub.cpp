@@ -1,4 +1,4 @@
-#include <pcl_ransac_ros/PointCloudPublisher.hpp>
+#include <pcl_ransac_ros/point_cloud_pub.hpp>
 
 #include <pcl_conversions/pcl_conversions.h>
 
