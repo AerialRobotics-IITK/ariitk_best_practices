@@ -1,7 +1,10 @@
 # ariitk_best_practices
 This repository contains a ROS node system that generates 3D pointclouds using PCL and fits them to either a plane or a sphere via RANSAC, visualizing the results in RViz.
 
-![Plane Fit](https://imgur.com/fr0zDLG)  ![Sphere Fit](https://imgur.com/JFa6gvw)
+<p><img src="https://imgur.com/fr0zDLG.png" width="47%" align="left">  <img src="https://imgur.com/JFa6gvw.png" width="47%" align="right"></p>
+Fig: Visualization of the plane and sphere models.
+
+***
 
 However, the main aim of this package is to outline the practices to be used while writing a ROS package. 
 
