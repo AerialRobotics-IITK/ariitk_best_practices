@@ -1,86 +1,74 @@
 # ariitk_best_practices
-This repository contains a sample package that outlines the practices to be used while writing a ROS package. The directory and file system is outlined below:-  
+This repository contains a ROS node system that generates 3D pointclouds using PCL and fits them to either a plane or a sphere via RANSAC, visualizing the results in RViz.
+
+<p><img src="https://imgur.com/fr0zDLG.png" width="47%" align="left">  <img src="https://imgur.com/JFa6gvw.png" width="47%" align="right"></p>
+Fig: Visualization of the plane and sphere models.
+
+***
+
+However, the main aim of this package is to outline the practices to be used while writing a ROS package. 
+
+The directory and file system is outlined below:-  
 * install  
 This folder contains the .rosinstall files whose primary role is to automatically clone all the package dependencies of your ROS package.
 For more information on the syntax and usage of rosinstall, please refer to [this link.](https://docs.ros.org/independent/api/rosinstall/html/)   
-    * template_https.rosinstall  
+    * install_https.rosinstall  
     This is the sample rosinstall file for cloning the repository [catkin_simple](https://github.com/catkin/catkin_simple) using https. More repositories can be added as required.  
-    * template_ssh.rosinstall
+    * install_ssh.rosinstall
     This is the sample rosinstall file for cloning the same repository as above, but using ssh keys.  
-* lib_package_template  
+* pcl_ransac  
 This folder contains the code for the custom libraries that you have written for use in your ROS package. this should not contain any ROS code, and should be modular so that it can be used in other packages as well.  
     * include  
-        * lib_package_template  
-            * template.hpp  
-            These file(s) contains all the includes for the library, and the declarations for all the variables+functions  in the library. All of this is put in a class/classes under the common namespace ar_iitk::lib_package_template. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be written here.
+        * pcl_ransac  
+            * pcl_ransac.hpp  
+            These file(s) contains all the includes for the library, and the declarations for all the variables+functions  in the library. All of this is put in a class/classes under the common namespace ariitk::pcl_ransac. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be written here.
     * src  
-        * template.cpp  
-        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside lib_package_template/include/lib_package_template/, in serial order. 
+        * pcl_ransac.cpp  
+        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside pcl_ransac/include/pcl_ransac/, in serial order. 
     * test  
     This folder contains the code for testing individual functions using [googletest](https://github.com/google/googletest). Instead of running the entire code, you can check particular functions, whether they are producing the correct output or not.
-        * include  
-            * lib_package_template_test  
-                * template_test.hpp  
         * src
-            * template_test.cpp  
+            * pcl_ransac_test.cpp  
             These file(s) contain the code for the test. For each function that you want to test, you need to write a seperate TEST() function. More details on how to write this code can be found [here.](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)  
     * CMakeLists.txt  
     Self explanatory. Note:We will use [catkin_simple](https://github.com/catkin/catkin_simple) as it makes writing our CMakeLists.txt a lot easier. For more information please refer the above link.  
     * package.xml  
     Self explanatory. [Link for reference.](http://wiki.ros.org/catkin/package.xml)  
-* msg_package_template  
+* pcl_ransac_msgs  
 This package contains all the custom [actions](http://wiki.ros.org/actionlib/Tutorials), [messages and services](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv) that your main ROS package needs. Refer to the links to learn how to write these.
-    * action  
-        * template.action  
-        These file(s) contain the definitions of actions required by your ROS package.  
     * msg
-        * template.msg  
+        * CloudModel.msg / ModelCoefficients.msg
         These file(s) contain the definitions of custom messages required by your ROS package.
     * srv  
-        * template.srv  
+        * ToggleModel.srv  
         These file(s) contain the definitions of custom services required by your ROS package.  
     * CMakeLists.txt  
     Self explanatory.  
     * package.xml  
     Self explanatory.  
-* ros_package_template  
+* pcl_ransac_ros  
 This contains the main ROS package. All your package-specific code goes here.  
     * cfg  
-        * template.cfg  
-        These file(s) contains the parameters that you want to dynamically reconfigure during runtime. Refer to [this tutorial](http://wiki.ros.org/hokuyo_node/Tutorials/UsingDynparamToChangeHokuyoLaserParameters#PythonAPI) to learn more.  
-        * template.yaml  
+        * pc_gen_params.yaml  
         These file(s) have the parameters that you want to load everytime you run your ROS nodes. It is always a good idea to put as many constants/values here as possible, so you don't have to recompile everytime you change a value.  
     * include
-        * ros_package_template  
-            * template_ros_pub.hpp, template_ros.hpp  
-            These file(s) contains all the includes for the ROS package, and the declarations for all the variables+functions  in the ROS package. All of this is put in a class/classes under the common namespace ar_iitk::ros_package_template. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be done here.  
+        * pcl_ransac_ros  
+            * point_cloud_pub.hpp, cloud_model_fit.hpp  
+            These file(s) contains all the includes for the ROS package, and the declarations for all the variables+functions  in the ROS package. All of this is put in a class/classes under the common namespace ariitk::pcl_ransac_ros. If the function definitions are one-liners, they may be defined here. Otherwise only declarations are to be done here.  
     * launch
-        * template.launch  
+        * default.launch  
         Launch file(s) for launching your nodes, loading parameters, etc.  
     * rviz
-        * template.rviz  
+        * visualizer.rviz  
         Configuration file(s) generated by rviz.
-    * scripts  
-        * template.py  
-        If your node(s) are written in python, then you need to put them here.
-        * template.sh  
-        Executable bash script(s) go here.
     * src  
-        * template_ros_pub.cpp, template_ros.cpp  
-        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside ros_package_template/include/ros_package_template/, in serial order.  
-        * template_ros_node.cpp
+        * point_cloud_pub.cpp, cloud_model_fit.cpp  
+        These cpp file(s) contain the actual definitions for all the functions declared in the header files inside pcl_ransac_ros/include/pcl_ransac_ros/, in serial order.  
+        * pcl_ransac_ros_node.cpp
         These are the actual node(s) that your machine will run. This should be kept as de-cluttered as possible.  
     * test  
     As mentioned earlier, this folder contains the code for testing individual functions using [googletest](https://github.com/google/googletest).
-        * include  
-            * lib_package_template_test  
-                * template_test.hpp  
-        * launch  
-            * template_test.launch  
-            Launch file(s) for launching the test(s).
-        * src
-            * template_test.cpp  
-            More details on how to write this code can be found [here.](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)  
+    More details on how to write this code can be found [here.](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)  
     * CMakeLists.txt  
     Self explanatory
     * package.xml
