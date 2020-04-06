@@ -8,9 +8,11 @@ TEST(PCLRansac, plane_fit_test) {
     cloud->width = 10;
     cloud->height = 1;
     cloud->is_dense = false;
-    PointCloudModelPlane plane;
+
+    CloudModelPlane plane;
     plane.generatePointCloud(cloud);
     plane.fitModel(cloud, 0.01);
+
     std::vector<int> test_result = plane.getModelInliers();
     ASSERT_EQ(test_result.size(), 5);
 }
@@ -20,11 +22,13 @@ TEST(PCLRansac, sphere_fit_test) {
     cloud->width = 20;
     cloud->height = 1;
     cloud->is_dense = false;
-    PointCloudModelSphere sphere;
+
+    CloudModelSphere sphere;
     sphere.generatePointCloud(cloud);
     sphere.fitModel(cloud, 0.01);
     std::vector<int> test_result = sphere.getModelInliers();
     ASSERT_EQ(test_result.size(), 9);
+
 }
 
 int main(int argc, char** argv) {

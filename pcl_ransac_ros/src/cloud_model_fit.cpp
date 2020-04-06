@@ -17,10 +17,7 @@ void CloudModelFitter::init(ros::NodeHandle& nh) {
 }
 
 void CloudModelFitter::run() {
-    if(cloud_->empty()) {
-        return;
-    }
-
+    if(cloud_->empty()) { return; }
     pcl_ransac_msgs::CloudModel model_data;
 
     if(do_plane_) {
