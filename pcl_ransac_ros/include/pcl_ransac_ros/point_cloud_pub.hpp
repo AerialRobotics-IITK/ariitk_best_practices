@@ -10,6 +10,7 @@ class PointCloudPublisher {
     public:
         PointCloudPublisher()
             : cloud_(new pcl::PointCloud<pcl::PointXYZ>) {};
+            
         void init(ros::NodeHandle& nh);
         void run();
 

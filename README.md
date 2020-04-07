@@ -77,6 +77,3 @@ This contains the main ROS package. All your package-specific code goes here.
 This file contains the list of all the files that you don't want to push with your repositories, like configuration files (like .vscode in this example), images, videos, certain folders, etc. Follows linux standard file/directory naming scheme. Each new entry must be written on a new line. More information can be found [here.](https://git-scm.com/docs/gitignore)
 * README.md   
 This file contains the description of your ROS package. Concisely write about the purpose of your package, requirements and steps to run it. Describe any other details as necessary. Follows markdown syntax.
-
-                
-    

@@ -11,6 +11,7 @@ class CloudModelFitter {
     public:
         CloudModelFitter()
             : cloud_(new pcl::PointCloud<pcl::PointXYZ>) {};
+            
         void init(ros::NodeHandle& nh);
         void run();
 
