@@ -5,8 +5,9 @@
 #include <pcl/sample_consensus/ransac.h>
 #include <pcl/sample_consensus/sac_model_plane.h>
 #include <pcl/sample_consensus/sac_model_sphere.h>
-#include <pcl_ransac_msgs/ModelCoefficients.h>
 #include <Eigen/Core>
+
+#include <pcl_ransac_msgs/ModelCoefficients.h>
 
 namespace ariitk::pcl_ransac {
 
