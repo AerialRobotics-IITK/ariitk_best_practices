@@ -1,11 +1,13 @@
+# For more information on each of these fields, please visit https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
 ---
 Language:        Cpp
-BasedOnStyle:  LLVM
+BasedOnStyle:  Google
 AccessModifierOffset: 0
 AlignAfterOpenBracket: DontAlign
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-#AlignConsecutiveMacros: false
+AlignConsecutiveMacros: false
 AlignEscapedNewlinesLeft: false
 AlignOperands:   true
 AlignTrailingComments: true
