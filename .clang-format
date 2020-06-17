@@ -4,24 +4,29 @@
 Language:                                       Cpp
 BasedOnStyle:                                   Google
 AccessModifierOffset:                           0
+
 AlignAfterOpenBracket:                          DontAlign
 AlignConsecutiveAssignments:                    false
 AlignConsecutiveDeclarations:                   false
 AlignEscapedNewlinesLeft:                       false
 AlignOperands:                                  true
 AlignTrailingComments:                          true
+
 AllowAllParametersOfDeclarationOnNextLine:      false
 AllowShortBlocksOnASingleLine:                  true
 AllowShortCaseLabelsOnASingleLine:              true 
 AllowShortFunctionsOnASingleLine:               All 
 AllowShortIfStatementsOnASingleLine:            true 
 AllowShortLoopsOnASingleLine:                   true 
+
 AlwaysBreakAfterDefinitionReturnType:           None
 AlwaysBreakAfterReturnType:                     None
 AlwaysBreakBeforeMultilineStrings:              false
 AlwaysBreakTemplateDeclarations:                false 
+
 BinPackArguments:                               false 
 BinPackParameters:                              false
+
 BraceWrapping:   
   AfterClass:                                     false
   AfterControlStatement:                          false
@@ -34,6 +39,7 @@ BraceWrapping:
   BeforeCatch:                                    false
   BeforeElse:                                     false
   IndentBraces:                                   false
+
 BreakBeforeBinaryOperators:                     None
 BreakBeforeBraces:                              Attach
 BreakBeforeInheritanceComma:                    true
@@ -41,6 +47,7 @@ BreakBeforeTernaryOperators:                    true
 BreakConstructorInitializersBeforeComma:        true
 BreakAfterJavaFieldAnnotations:                 false
 BreakStringLiterals:                            true
+
 ColumnLimit:                                    160
 CommentPragmas:                                 '^ IWYU pragma:'
 BreakBeforeInheritanceComma:                    false
@@ -53,6 +60,7 @@ DisableFormat:                                  false
 ExperimentalAutoDetectBinPacking:               false
 FixNamespaceComments:                           true
 ForEachMacros:                                  [ foreach, Q_FOREACH, BOOST_FOREACH ] 
+
 IncludeBlocks:                                  Preserve
 IncludeCategories: 
   - Regex:                                        '^"(llvm|llvm-c|clang|clang-c)/'
@@ -62,20 +70,25 @@ IncludeCategories:
   - Regex:                                        '.*'
     Priority:                                       1
 IncludeIsMainRegex:                             '$'
+
 IndentCaseLabels:                               true
 IndentPPDirectives:                             AfterHash
 IndentWidth:                                    4
 IndentWrappedFunctionNames:                     false
+
 JavaScriptQuotes:                               Leave
 JavaScriptWrapImports:                          true
+
 KeepEmptyLinesAtTheStartOfBlocks:               false
 MacroBlockBegin:                                ''
 MacroBlockEnd:                                  ''
 MaxEmptyLinesToKeep:                            1
 NamespaceIndentation:                           None
+
 ObjCBlockIndentWidth:                           2
 ObjCSpaceAfterProperty:                         false
 ObjCSpaceBeforeProtocolList:                    true
+
 PenaltyBreakBeforeFirstCallParameter:           19
 PenaltyBreakComment:                            300
 PenaltyBreakFirstLessLess:                      120
@@ -83,6 +96,7 @@ PenaltyBreakString:                             1000
 PenaltyExcessCharacter:                         1000000
 PenaltyReturnTypeOnItsOwnLine:                  60
 PointerAlignment:                               Left
+
 SpaceAfterCStyleCast:                           true 
 SpaceAfterTemplateKeyword:                      false
 SpaceBeforeAssignmentOperators:                 true
@@ -93,4 +107,5 @@ SpacesInCStyleCastParentheses:                  false
 SpacesInContainerLiterals:                      false
 SpacesInContainerLiterals:                      false
 SpacesInSquareBrackets:                         false
+
 UseTab:                                         Never
