@@ -6,16 +6,16 @@ using namespace ariitk::pcl_ransac_ros;
 int main(int argc, char** argv) {
     ros::init(argc, argv, "model_node");
     ros::NodeHandle nh;
-    
+
     CloudModelFitter fitter;
     PointCloudPublisher generator;
-    
+
     fitter.init(nh);
     generator.init(nh);
 
     ros::Rate loop_rate(10);
 
-    while(ros::ok()) {
+    while (ros::ok()) {
         generator.run();
         ros::spinOnce();
         fitter.run();

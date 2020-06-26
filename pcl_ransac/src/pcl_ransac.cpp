@@ -2,8 +2,8 @@
 
 namespace ariitk::pcl_ransac {
 
-PointCloudModel::PointCloudModel()
-    : inliers_(std::vector<int>()) {}
+PointCloudModel::PointCloudModel() : inliers_(std::vector<int>()) {
+}
 
 void PointCloudModel::computeModelParameters(pcl::RandomSampleConsensus<pcl::PointXYZ>& model) {
     model.getInliers(inliers_);
@@ -19,10 +19,10 @@ void PointCloudModel::computeModelParameters(pcl::RandomSampleConsensus<pcl::Poi
 
 void CloudModelPlane::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) {
     cloud->points.resize(cloud->width * cloud->height);
-    for(std::size_t i = 0; i < cloud->points.size(); ++i) {
+    for (std::size_t i = 0; i < cloud->points.size(); ++i) {
         cloud->points[i].x = 1024 * rand() / (RAND_MAX + 1.0);
         cloud->points[i].y = 1024 * rand() / (RAND_MAX + 1.0);
-        if(i % 2 == 0) {
+        if (i % 2 == 0) {
             cloud->points[i].z = 1024 * rand() / (RAND_MAX + 1.0);
         } else {
             cloud->points[i].z = -1 * (cloud->points[i].x + cloud->points[i].y);
@@ -41,17 +41,15 @@ void CloudModelPlane::fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, const
 
 void CloudModelSphere::generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) {
     cloud->points.resize(cloud->width * cloud->height);
-    for(std::size_t i = 0; i < cloud->points.size (); ++i) {
+    for (std::size_t i = 0; i < cloud->points.size(); ++i) {
         cloud->points[i].x = 1024 * rand() / (RAND_MAX + 1.0);
         cloud->points[i].y = 1024 * rand() / (RAND_MAX + 1.0);
-        if(i % 5 == 0) {
+        if (i % 5 == 0) {
             cloud->points[i].z = 1024 * rand() / (RAND_MAX + 1.0);
-        } else if(i % 2 == 0) {
-            cloud->points[i].z = sqrt(1 - (cloud->points[i].x * cloud->points[i].x)
-                                      - (cloud->points[i].y * cloud->points[i].y));
+        } else if (i % 2 == 0) {
+            cloud->points[i].z = sqrt(1 - (cloud->points[i].x * cloud->points[i].x) - (cloud->points[i].y * cloud->points[i].y));
         } else {
-            cloud->points[i].z = -sqrt(1 - (cloud->points[i].x * cloud->points[i].x)
-                                        - (cloud->points[i].y * cloud->points[i].y));
+            cloud->points[i].z = -sqrt(1 - (cloud->points[i].x * cloud->points[i].x) - (cloud->points[i].y * cloud->points[i].y));
         }
     }
 }

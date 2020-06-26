@@ -28,7 +28,6 @@ TEST(PCLRansac, sphere_fit_test) {
     sphere.fitModel(cloud, 0.01);
     std::vector<int> test_result = sphere.getModelInliers();
     ASSERT_EQ(test_result.size(), 9);
-
 }
 
 int main(int argc, char** argv) {
