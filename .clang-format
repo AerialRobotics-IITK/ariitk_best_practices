@@ -13,11 +13,11 @@ AlignOperands:                                  true
 AlignTrailingComments:                          true
 
 AllowAllParametersOfDeclarationOnNextLine:      false
-AllowShortBlocksOnASingleLine:                  true
-AllowShortCaseLabelsOnASingleLine:              true 
-AllowShortFunctionsOnASingleLine:               All 
-AllowShortIfStatementsOnASingleLine:            true 
-AllowShortLoopsOnASingleLine:                   true 
+AllowShortBlocksOnASingleLine:                  false
+AllowShortCaseLabelsOnASingleLine:              false 
+AllowShortFunctionsOnASingleLine:               None
+AllowShortIfStatementsOnASingleLine:            false 
+AllowShortLoopsOnASingleLine:                   false 
 
 AlwaysBreakAfterDefinitionReturnType:           None
 AlwaysBreakAfterReturnType:                     None
