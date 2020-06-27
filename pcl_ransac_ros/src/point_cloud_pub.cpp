@@ -20,7 +20,7 @@ void PointCloudPublisher::init(ros::NodeHandle& nh) {
 }
 
 void PointCloudPublisher::run() {
-    if(do_plane_) {
+    if (do_plane_) {
         plane_.generatePointCloud(cloud_);
     } else {
         sphere_.generatePointCloud(cloud_);
@@ -40,4 +40,4 @@ bool PointCloudPublisher::serviceCallback(pcl_ransac_msgs::ToggleModel::Request&
     return true;
 }
 
-} // namespace ariitk::pcl_ransac_ros
+}  // namespace ariitk::pcl_ransac_ros

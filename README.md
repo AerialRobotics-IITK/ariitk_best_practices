@@ -73,6 +73,8 @@ This contains the main ROS package. All your package-specific code goes here.
     Self explanatory
     * package.xml
     Self explanatory
+* .clang-format  
+This file contains the formatting settings to be used with clang-format. To use clang-format, please install it by running ```sudo apt-get install clang-format``` and running it with ```clang-format -style=file -i /path/to/file```. Make sure that this file is present on your workspace or home directory. It is also recommended that you install the clang-format extension for whatever editor you are using, to avoid running this command for each file. Also please note that clang doesn't currently support indentation after access modifiers (like public: and private:) so you have to indent the code after these yourself. Also doesn't support newline after : while using initialization lists in constructor.
 * .gitignore  
 This file contains the list of all the files that you don't want to push with your repositories, like configuration files (like .vscode in this example), images, videos, certain folders, etc. Follows linux standard file/directory naming scheme. Each new entry must be written on a new line. More information can be found [here.](https://git-scm.com/docs/gitignore)
 * README.md   

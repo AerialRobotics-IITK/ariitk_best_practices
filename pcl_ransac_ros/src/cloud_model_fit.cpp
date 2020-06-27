@@ -17,10 +17,12 @@ void CloudModelFitter::init(ros::NodeHandle& nh) {
 }
 
 void CloudModelFitter::run() {
-    if(cloud_->empty()) { return; }
+    if (cloud_->empty()) {
+        return;
+    }
     pcl_ransac_msgs::CloudModel model_data;
 
-    if(do_plane_) {
+    if (do_plane_) {
         plane_.fitModel(cloud_, 0.01);
         model_data.coefficients = plane_.getModelCoefficients();
         model_data.type = pcl_ransac_msgs::CloudModel::PLANE;
@@ -52,4 +54,4 @@ bool CloudModelFitter::serviceCallback(pcl_ransac_msgs::ToggleModel::Request& re
     return true;
 }
 
-} // namespace ariitk::pcl_ransac_ros
+}  // namespace ariitk::pcl_ransac_ros

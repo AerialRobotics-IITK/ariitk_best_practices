@@ -1,37 +1,36 @@
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
 
+#include <pcl_ransac/pcl_ransac.hpp>
 #include <pcl_ransac_msgs/CloudModel.h>
 #include <pcl_ransac_msgs/ToggleModel.h>
-#include <pcl_ransac/pcl_ransac.hpp>
 
 namespace ariitk::pcl_ransac_ros {
 
 class CloudModelFitter {
-    public:
-        CloudModelFitter()
-            : cloud_(new pcl::PointCloud<pcl::PointXYZ>) {};
-            
-        void init(ros::NodeHandle& nh);
-        void run();
+  public:
+    CloudModelFitter() : cloud_(new pcl::PointCloud<pcl::PointXYZ>){};
 
-    private:
-        void cloudCallback(const sensor_msgs::PointCloud2& msg);
-        bool serviceCallback(pcl_ransac_msgs::ToggleModel::Request& req, pcl_ransac_msgs::ToggleModel::Response& resp);
+    void init(ros::NodeHandle& nh);
+    void run();
 
-        ros::Publisher pc_fit_pub_;
-        ros::Publisher model_pub_;
+  private:
+    void cloudCallback(const sensor_msgs::PointCloud2& msg);
+    bool serviceCallback(pcl_ransac_msgs::ToggleModel::Request& req, pcl_ransac_msgs::ToggleModel::Response& resp);
 
-        ros::Subscriber pc_sub_;
+    ros::Publisher pc_fit_pub_;
+    ros::Publisher model_pub_;
 
-        ros::ServiceServer plane_flag_server_;
+    ros::Subscriber pc_sub_;
 
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_;
+    ros::ServiceServer plane_flag_server_;
 
-        ariitk::pcl_ransac::CloudModelPlane plane_;
-        ariitk::pcl_ransac::CloudModelSphere sphere_;
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_;
 
-        bool do_plane_;
+    ariitk::pcl_ransac::CloudModelPlane plane_;
+    ariitk::pcl_ransac::CloudModelSphere sphere_;
+
+    bool do_plane_;
 };
 
-} // namespace ariitk::pcl_ransac_ros
+}  // namespace ariitk::pcl_ransac_ros
