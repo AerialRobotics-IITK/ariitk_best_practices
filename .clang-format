@@ -51,7 +51,7 @@ BreakStringLiterals:                            true
 ColumnLimit:                                    160
 CommentPragmas:                                 '^ IWYU pragma:'
 BreakBeforeInheritanceComma:                    false
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth:              4
 ContinuationIndentWidth:                        4
 Cpp11BracedListStyle:                           true
