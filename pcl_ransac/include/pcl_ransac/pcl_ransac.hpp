@@ -12,7 +12,7 @@
 namespace ariitk::pcl_ransac {
 
 class PointCloudModel {
-    public:
+  public:
     PointCloudModel();
     ~PointCloudModel(){};
 
@@ -28,20 +28,20 @@ class PointCloudModel {
         return coefficients_;
     };
 
-    private:
+  private:
     pcl_ransac_msgs::ModelCoefficients coefficients_;
 
     std::vector<int> inliers_;
 };
 
 class CloudModelPlane : public PointCloudModel {
-    public:
+  public:
     void generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) override;
     void fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, const double& distance_threshold) override;
 };
 
 class CloudModelSphere : public PointCloudModel {
-    public:
+  public:
     void generatePointCloud(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud) override;
     void fitModel(pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, const double& distance_threshold) override;
 };

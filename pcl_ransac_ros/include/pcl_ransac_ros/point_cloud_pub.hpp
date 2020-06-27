@@ -7,13 +7,13 @@
 namespace ariitk::pcl_ransac_ros {
 
 class PointCloudPublisher {
-    public:
+  public:
     PointCloudPublisher() : cloud_(new pcl::PointCloud<pcl::PointXYZ>){};
 
     void init(ros::NodeHandle& nh);
     void run();
 
-    private:
+  private:
     bool serviceCallback(pcl_ransac_msgs::ToggleModel::Request& req, pcl_ransac_msgs::ToggleModel::Response& resp);
 
     ros::Publisher pc_pub_;

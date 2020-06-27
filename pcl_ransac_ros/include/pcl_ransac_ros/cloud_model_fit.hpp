@@ -8,13 +8,13 @@
 namespace ariitk::pcl_ransac_ros {
 
 class CloudModelFitter {
-    public:
+  public:
     CloudModelFitter() : cloud_(new pcl::PointCloud<pcl::PointXYZ>){};
 
     void init(ros::NodeHandle& nh);
     void run();
 
-    private:
+  private:
     void cloudCallback(const sensor_msgs::PointCloud2& msg);
     bool serviceCallback(pcl_ransac_msgs::ToggleModel::Request& req, pcl_ransac_msgs::ToggleModel::Response& resp);
 
