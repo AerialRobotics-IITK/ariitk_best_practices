@@ -2,7 +2,8 @@
 
 namespace ariitk::pcl_ransac {
 
-PointCloudModel::PointCloudModel() : inliers_(std::vector<int>()) {
+PointCloudModel::PointCloudModel()
+    : inliers_(std::vector<int>()) {
 }
 
 void PointCloudModel::computeModelParameters(pcl::RandomSampleConsensus<pcl::PointXYZ>& model) {

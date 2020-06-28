@@ -8,7 +8,8 @@ namespace ariitk::pcl_ransac_ros {
 
 class PointCloudPublisher {
   public:
-    PointCloudPublisher() : cloud_(new pcl::PointCloud<pcl::PointXYZ>){};
+    PointCloudPublisher()
+        : cloud_(new pcl::PointCloud<pcl::PointXYZ>){};
 
     void init(ros::NodeHandle& nh);
     void run();
