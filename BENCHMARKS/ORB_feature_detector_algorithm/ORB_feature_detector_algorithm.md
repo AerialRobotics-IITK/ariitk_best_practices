@@ -29,7 +29,9 @@ A single video file, with a resolution of 1920x1080 @ 30 FPS (Total 750 frames) 
 
 
 ### __Footnotes__
-This is the [original paper](https://ieeexplore.ieee.org/document/6126544) that details this algorithm. This algorithm is quite efficient, and suitable for use on onboard computers. The _scaleFactor_ parameter has a significant effect on computational efficiency, and increasing it lessens the computational effort required, at the cost of quality of features (which might cause problems with feature matching in later stages). _scoreType_ doesn't have a lot of effect on computational power (FAST_SCORE only slightly improves it, but produces slightly less stable keypoints). 
-
-
-This document is an example and hasn't been documented extensively, hence many of the variables in the _Parameters_ section have been set to their default values. In reality, you might want to vary every significant parameter to see what effect it has on the result. The key is striking a balance; you don't want to be wasting too much time on conducting tests and recording results by varying each and every parameter (especially those that have a negligible effect on your result) and at the same time you shouldn't conduct very few tests, which might be insufficient to get a clear picture and also optimise your performance. In any case, every relevant information must be given so that the tests can be recreated or the documentation can be made more extensive, if the need arises.
+This is the [original paper](https://ieeexplore.ieee.org/document/6126544) that details this algorithm. This algorithm is quite efficient, and suitable for use on onboard computers.   
+The documentation for the OpenCV's ORB class can be found [here](https://docs.opencv.org/3.4/db/d95/classcv_1_1ORB.html). This is the [python tutorial](https://docs.opencv.org/3.4/d1/d89/tutorial_py_orb.html), used to write the code.   
+[]()  
+The _scaleFactor_ parameter has a significant effect on computational efficiency, and increasing it drastically lessens the computational effort required, at the cost of quality of features. Hence the lower number of detected features (as many good features get worn out during scaling)    
+_scoreType_ doesn't have a lot of effect on computational efficiency (FAST_SCORE only slightly improves it, but produces slightly less stable keypoints). Also slightly more features are detected using FAST_SCORE.   
+_WTA_K_ also has negligible affect on computation or detected features.
