@@ -1,4 +1,4 @@
-# <center>Oriented FAST and Rotated BRIEF (ORB) Feature Detection Algorithm</center>
+# <center>Oriented FAST and Rotated BRIEF (ORB) Feature Detection</center>
 
 ### __Introduction__
 This algorithm is used for detecting and matching features in an image. It is a royalty-free and more computationally efficient alternative to SIFT and SURF, and is already implemented in the OpenCV library. However in this case, only the _feature detector_ part is going to be benchmarked. The test bench going to be used is an i5-8400 with 16 GB of RAM.
@@ -26,7 +26,24 @@ This algorithm is used for detecting and matching features in an image. It is a 
 A single video file, with a resolution of 1920x1080 @ 30 FPS (Total 750 frames) has been used as the test case. The file has been taken [this](https://motchallenge.net/vis/MOT17-13-SDP) online database (RAW sequence). Before use, it was converted from .webm format to .mp4, encoded using a FFMPEG codec recognized by OpenCV. 
 
 ### __Results__
+![Imgur](https://i.imgur.com/xtVE2Zk.png)
+Figure 1: Benchmarking Results   
+[]()    
 
+![Imgur](https://i.imgur.com/oIP0Q7O.png)
+Graph 1: Detected Features Plot for _scaleFactor_ = 1.2, _WTA_K_ = 4, _scoreType_ = HARRIS_THRESHOLD
+[]()    
+
+![Imgur](https://i.imgur.com/bMxr7UW.png)
+Graph 2: Time Plot for _scaleFactor_ = 1.2, _WTA_K_ = 4, _scoreType_ = HARRIS_THRESHOLD
+[]()    
+
+![Imgur](https://i.imgur.com/mfMINcw.png)
+Graph 3: Detected Features Plot for _scaleFactor_ = 2.5, _WTA_K_ = 4, _scoreType_ = HARRIS_THRESHOLD
+[]()    
+
+![Imgur](https://i.imgur.com/ht6phCF.png)
+Graph 4: Time Plot for _scaleFactor_ = 1.2, _WTA_K_ = 2.5, _scoreType_ = HARRIS_THRESHOLD
 
 ### __Footnotes__
 This is the [original paper](https://ieeexplore.ieee.org/document/6126544) that details this algorithm. This algorithm is quite efficient, and suitable for use on onboard computers.   
