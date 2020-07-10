@@ -74,7 +74,7 @@ def main(program_dir, scale_factor, wta_k, score_type):
     plt.ylabel('Detected Features')
     plt.title('Plot of Detected Features in Each Frame')
     plt.tight_layout()
-    plt.savefig(program_dir + '/plots/features_number_plot_' + str(scale_factor) + '_' + str(wta_k) + '_' + ('HARRIS' if i[2] == cv2.ORB_HARRIS_SCORE else 'FAST') + '.svg')
+    plt.savefig(program_dir + '/plots/features_number_plot_' + str(scale_factor) + '_' + str(wta_k) + '_' + ('HARRIS' if score_type == cv2.ORB_HARRIS_SCORE else 'FAST') + '.svg')
 
     plt.clf()
     
@@ -84,7 +84,7 @@ def main(program_dir, scale_factor, wta_k, score_type):
     plt.ylabel('Time Taken for Identifying Features(ms)')
     plt.title('Plot of Time Taken for Identifying Features in Each Frame')
     plt.tight_layout()
-    plt.savefig(program_dir + '/plots/time_plot_' + str(scale_factor) + '_' + str(wta_k) + '_' + ('HARRIS' if i[2] == cv2.ORB_HARRIS_SCORE else 'FAST') + '.svg')
+    plt.savefig(program_dir + '/plots/time_plot_' + str(scale_factor) + '_' + str(wta_k) + '_' + ('HARRIS' if score_type == cv2.ORB_HARRIS_SCORE else 'FAST') + '.svg')
     
     plt.close('all')
 
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     # First list is the list of scaleFactor values to be tested.
     # Second list is the list of WTA_K values to be tested.
     # Third list is the list of scoreType values to be tested.
-    list_args = [[1.2, 1.5, 2, 3], [2, 3, 4], [cv2.ORB_HARRIS_SCORE, cv2.ORB_FAST_SCORE]]
+    list_args = [[1.2, 1.5, 2, 2.5], [2, 3, 4], [cv2.ORB_HARRIS_SCORE, cv2.ORB_FAST_SCORE]]
     
     # This produces all the possible combinations of these parameters, for benchmarking
     comb_args = list(product(*list_args))
